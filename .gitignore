@@ -1,0 +1,92 @@
+# Byte-compiled / optimized / DLL files
+cPOP/__pycache__/
+cPOP/*.pyc
+cPOP/*.pyo
+cPOP/*.pyd
+
+# C extensions
+cPOP/*.so
+
+# Distribution / packaging
+cPOP/.Python
+cPOP/build/
+cPOP/develop-eggs/
+cPOP/dist/
+cPOP/downloads/
+cPOP/eggs/
+cPOP/.eggs/
+cPOP/lib/
+cPOP/lib64/
+cPOP/parts/
+cPOP/sdist/
+cPOP/var/
+cPOP/wheels/
+cPOP/pip-wheel-metadata/
+cPOP/share/python-wheels/
+cPOP/*.egg-info/
+cPOP/.installed.cfg
+cPOP/*.egg
+
+# Installer logs
+cPOP/pip-log.txt
+cPOP/pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+cPOP/htmlcov/
+cPOP/.tox/
+cPOP/.nox/
+cPOP/.coverage
+cPOP/.coverage.*
+cPOP/.cache
+cPOP/nosetests.xml
+cPOP/coverage.xml
+cPOP/*.cover
+cPOP/*.py,cover
+cPOP/.hypothesis/
+cPOP/.pytest_cache/
+
+# Translations
+cPOP/*.mo
+cPOP/*.pot
+
+# Django stuff:
+cPOP/*.log
+cPOP/local_settings.py
+
+# Flask stuff:
+cPOP/instance/
+cPOP/.webassets-cache
+
+# Scrapy stuff:
+cPOP/.scrapy
+
+# Sphinx documentation
+cPOP/docs/_build/
+
+# PyInstaller
+cPOP/dist/
+cPOP/build/
+
+# Jupyter Notebook
+cPOP/.ipynb_checkpoints
+
+# IPython
+cPOP/profile_default/
+cPOP/ipython_config.py
+
+# pyenv
+cPOP/.python-version
+
+# pipenv
+cPOP/Pipfile.lock
+cPOP/Pipfile
+
+# data
+cPOP/data/*
+
+# Models
+cPOP/models/
+
+# venv
+cPOP/.venv/*
+cPOP/src/__pycache__
