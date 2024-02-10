@@ -90,3 +90,6 @@ cPOP/models/
 # venv
 cPOP/.venv/*
 cPOP/src/__pycache__
+
+# Plots
+cPOP/plots/
