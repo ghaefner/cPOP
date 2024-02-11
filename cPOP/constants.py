@@ -30,7 +30,7 @@ DICT_LANGUAGES = {
     "php": [r'^php.*'],
     "android": [r'.*android.*'],
     "python": [r'.*apache.*', r'^django.*', r'.*python.*', r'.*pandas.*', r'.*numpy.*', r'.*matplotlib.*', r'.*seaborn.*'],
-    "ruby": ['ruby'],
+    "ruby": [r'^ruby$'],
     "c++": [r'^c\+\+.*'],
     "objective-c": [r'.*objective-c.*'],
     "c": [r'^c$'],
