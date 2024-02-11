@@ -5,6 +5,8 @@ PATH_TO_DATA = "cPOP/data/by_tag_year.csv"
 PATH_TO_TAG_MODEL = "cPOP/models/tag_classifier_model.pkl"
 PATH_TO_PLOT_FOLDER = "cPOP/plots/"
 
+PATH_TO_DB = 'sqlite:///mydatabase.db'
+
 
 class Columns:
     YEAR = "year"
@@ -16,6 +18,9 @@ class Columns:
     FRACTION = "fraction"
 
     TAG_GROUP = "tag_group"
+
+    MEASURE = "measure"
+    ID = "table_id"
 
 
 DICT_LANGUAGES = {
