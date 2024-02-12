@@ -93,3 +93,6 @@ cPOP/src/__pycache__
 
 # Plots
 cPOP/plots/
+
+# DB
+cPOP/*.db
