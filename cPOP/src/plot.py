@@ -70,3 +70,21 @@ def plot_animation(df, output_path="animation.gif"):
 
     # Save the animation as a GIF
     anim.save(PATH_TO_PLOT_FOLDER+output_path, writer='pillow')
+
+
+def plot_top_tag_groups(df, year):
+    # Filter and sort dataframe
+    df = df[(df[Columns.YEAR] == year) & (df[Columns.TAG_GROUP] != "other")].sort_values(by=Columns.FRACTION, ascending=False)
+
+    # Take top 10 tag groups
+    top_tag_groups = df.head(10)
+
+    # Plotting
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.barh(top_tag_groups[Columns.TAG_GROUP], top_tag_groups[Columns.FRACTION], color='skyblue')
+    ax.set_xlabel('% of Stackoverflow Searches')
+    ax.set_ylabel('Programming Language')
+    ax.set_title(f'Top 10 Programming Languages in {year}')
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.1%}'.format(x)))
+
+    return fig
