@@ -38,11 +38,29 @@ def plot_tag_timeseries(df):
 
     return fig
 
-def save_fig(fig, output_path="Output.png"):
-    print(f"Saving plot to {PATH_TO_PLOT_FOLDER+output_path}.")
-    # Save the plot as a .png file
-    fig.savefig(PATH_TO_PLOT_FOLDER+output_path, bbox_inches='tight')
-
+def save_plot(obj, output_path="Output.png"):
+    
+    # For plt.Figure object use savefig method
+    if isinstance(obj, plt.Figure):
+        # Check for file format
+        if output_path.lower().endswith(('.jpg', '.png', '.jpeg')):    
+            print(f"Saving plot to {PATH_TO_PLOT_FOLDER+output_path}.")
+            obj.savefig(PATH_TO_PLOT_FOLDER+output_path, bbox_inches='tight')
+        else:
+            raise ValueError("File ending does not match plotting type. Please use jpg, png or jpeg file format.")
+    
+    # For animaton object use save method
+    elif isinstance(obj, FuncAnimation):
+        # Check for file format
+        if output_path.lower().endswith('.gif'):    
+            print(f"Saving plot to {PATH_TO_PLOT_FOLDER+output_path}.")
+            obj.save(PATH_TO_PLOT_FOLDER+output_path, writer='pillow')
+        else:
+            raise ValueError("File ending does not match plotting type. Please use gif file format.")
+        
+    else:
+        raise ValueError("Unsupported object type. Please use fig or animation object.")
+    
 
 def update_timeseries_frame(frame, df):
     # Filter the DataFrame for the current frame
