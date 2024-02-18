@@ -88,3 +88,14 @@ def plot_top_tag_groups(df, year):
     ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.1%}'.format(x)))
 
     return fig
+
+
+def plot_top_animation(df):
+
+    unique_years = df[Columns.YEAR].unique()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    anim = FuncAnimation(fig, lambda year: plot_top_tag_groups(df, year), frames=unique_years, repeat=False)
+
+    return anim
