@@ -19,7 +19,7 @@ def set_ax_parameters(ax, percent_formatting = True):
     ax.grid(True)
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
-def plot_tag_fraction(df):
+def plot_tag_timeseries(df):
     # Filter out rows where tag_group is 'other'
     df_filtered = df[df[Columns.TAG_GROUP] != 'other']
         
@@ -47,7 +47,7 @@ def save_fig(fig, output_path="Output.png"):
 def update_timeseries_frame(frame, df):
     # Filter the DataFrame for the current frame
     df_frame = df[df[Columns.YEAR] == frame]
-    fig = plot_tag_fraction(df_frame)
+    fig = plot_tag_timeseries(df_frame)
     return fig
 
 
@@ -63,7 +63,7 @@ def plot_animation(df, output_path="animation.gif"):
         df_frame = df[df[Columns.YEAR] == frame]
         
         # Plot the data for the current frame using plot_tag_fraction
-        plot_tag_fraction(df_frame)
+        plot_tag_timeseries(df_frame)
         
     # Create the animation
     anim = FuncAnimation(fig, animate, frames=sorted(df[Columns.YEAR].unique()), interval=1000)
@@ -74,10 +74,10 @@ def plot_animation(df, output_path="animation.gif"):
 
 def plot_top_tag_groups(df, year):
     # Filter and sort dataframe
-    df = df[(df[Columns.YEAR] == year) & (df[Columns.TAG_GROUP] != "other")].sort_values(by=Columns.FRACTION, ascending=False)
+    df = df[(df[Columns.YEAR] == year) & (df[Columns.TAG_GROUP] != "other")].sort_values(by=Columns.FRACTION, ascending=True)
 
     # Take top 10 tag groups
-    top_tag_groups = df.head(10)
+    top_tag_groups = df.tail(10)
 
     # Plotting
     fig, ax = plt.subplots(figsize=(10, 6))
