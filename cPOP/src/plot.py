@@ -114,6 +114,12 @@ def plot_top_animation(df):
 
     fig, ax = plt.subplots(figsize=(10, 6))
 
-    anim = FuncAnimation(fig, lambda year: plot_top_tag_groups(df, year), frames=unique_years, repeat=False)
+    # Define the animation function
+    def animate(frame):
+        ax.clear()  # Clear the previous frame
+        # Plot the data for the current frame using plot_tag_fraction
+        plot_top_tag_groups(df, year=frame)
+
+    anim = FuncAnimation(fig, animate, frames=unique_years, repeat=False, interval=5000)
 
     return anim
