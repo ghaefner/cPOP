@@ -92,7 +92,8 @@ cPOP/.venv/*
 cPOP/src/__pycache__
 
 # Plots
-cPOP/plots/
+cPOP/plots/*
 
 # DB
 cPOP/*.db
+*.db
