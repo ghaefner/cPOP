@@ -34,15 +34,17 @@ def check_key(df, columns=[Columns.YEAR,Columns.TAG]):
         print(f'Key check ok. Key columns are: {columns}')
 
 def write_db(df, db_path=PATH_TO_DB):
+    
     check_key(df)
     engine = create_engine(db_path)
+    recreate_tables(engine)
+
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
     # Inserting data into tags table
     df[Columns.ID] = df[Columns.YEAR].astype(str) + '@@' + df[Columns.TAG]
-    # tags_data = tags_data.rename(columns={Columns.TAG: Columns.TAG_GROUP})
     tags_entries = [
         Tag(key=row[Columns.ID], tag_group=row[Columns.TAG_GROUP], tag=row[Columns.TAG])
         for _, row in df.iterrows()
