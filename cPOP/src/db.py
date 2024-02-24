@@ -34,7 +34,16 @@ def check_key(df, columns=[Columns.YEAR,Columns.TAG]):
         print(f'Key check ok. Key columns are: {columns}')
 
 def write_db(df, db_path=PATH_TO_DB):
-    
+    """
+    Args:
+        df (DataFrame): DataFrame containing data to be written to the database.
+        db_path (str, optional): Path to the database. Defaults to PATH_TO_DB.
+    Returns:
+        None
+
+    Example:
+        write_db(df, db_path='example.db')
+    """
     check_key(df)
     engine = create_engine(db_path)
     recreate_tables(engine)
