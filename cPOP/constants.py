@@ -1,6 +1,4 @@
 
-import re
-
 PATH_TO_DATA = "cPOP/data/by_tag_year.csv"
 PATH_TO_TAG_MODEL = "cPOP/models/tag_classifier_model.pkl"
 PATH_TO_PLOT_FOLDER = "cPOP/plots/"
