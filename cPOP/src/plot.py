@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from matplotlib.ticker import PercentFormatter
-import numpy as np
 from cPOP.constants import Columns, PATH_TO_PLOT_FOLDER
 
 
@@ -39,7 +37,6 @@ def plot_tag_timeseries(df):
     return fig
 
 def save_plot(obj, output_path="Output.png"):
-    
     # For plt.Figure object use savefig method
     if isinstance(obj, plt.Figure):
         # Check for file format
